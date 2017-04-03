@@ -2,8 +2,10 @@
 title: Le Wagon Middleman boilerplate
 ---
 
+<!-- Banner -->
 <%= partial 'banner' %>
 
+<!-- Features -->
 <div class="container padded text-center features">
   <div class="row">
     <% data.features.each do |feature| %>
@@ -12,79 +14,17 @@ title: Le Wagon Middleman boilerplate
   </div>
 </div>
 
-
-
-<!-- Your cards code -->
+<!-- Cards -->
 <div class="container">
   <div class="row">
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(-130deg, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0.4)), url('images/card-paris.jpg')">
-        <h2 class="location">Paris</h2>
-        <img src="images/seb.jpg" alt="" class="avatar">
-        <%= image_tag 'seb.jpg', class: "avatar"%>
-        <div class="wrap-card-content">
-          <h3 class="title">Seb's home</h3>
-          <p>Charming room with patio</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(-130deg, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0.4)), url('images/card-brussels.jpeg')">
-        <h2 class="location">Brussels</h2>
-        <%= image_tag 'anne.jpg', class: "avatar"%>
-        <div class="wrap-card-content">
-          <h3 class="title">Annes's home</h3>
-          <p>Lovely house</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(-130deg, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0.4)), url('images/card-london.jpeg')">
-        <h2 class="location">London</h2>
-        <%= image_tag 'romain.jpeg', class: "avatar"%>
-        <div class="wrap-card-content">
-          <h3 class="title">Romain's home</h3>
-          <p>Nice flat in london</p>
-        </div>
-      </div>
-    </div>
-
+    <% data.cards.each do |card| %>
+      <%= partial 'card', locals: {image: card.image, location: card.location, avatar: card.avatar, title: card.title, desc: card.desc} %>
+    <% end %>
   </div>
 </div>
 
 <!-- Your newsletter code -->
-<div class="text-center padded newsletter">
-  <h2>Get news from us</h2>
-  <p>Leave us your email pls</p>
-  <form action="post" class="form-inline">
-    <input type="email" placeholder="bob@gmail.com" class="form-control">
-    <input type="submit" value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary">
-  </form>
-</div>
+<%= partial "newsletter" %>
 
 <!-- Your map code -->
-<div id="map" style="width: 100%;height: 500px;"></div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-<script type="text/javascript">
-var myLatlng = new google.maps.LatLng(48.852937,2.364178);
-
-var myOptions = {
-  zoom: 16,
-  center: myLatlng,
-  scrollwheel: false,
-  mapTypeId: google.maps.MapTypeId.ROADMAP,
-  styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
-};
-
-var map = new google.maps.Map(document.getElementById('map'), myOptions);
-var marker = new google.maps.Marker({
-  position: myLatlng,
-  map: map,
-  title:"You are here!"
-});
-</script>
+<%= partial "map" %>

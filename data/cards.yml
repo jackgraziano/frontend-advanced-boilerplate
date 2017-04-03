@@ -1,0 +1,15 @@
+- image: card-paris.jpg
+  location: Paris
+  avatar: seb.jpg
+  title: Seb's home
+  desc: Charming room with patio
+- image: card-brussels.jpeg
+  location: Brussels
+  avatar: anne.jpg
+  title: Anne's home
+  desc: Lovely House
+- image: card-london.jpeg
+  location: London
+  avatar: romain.jpeg
+  title: Romain's home
+  desc: Nice flat in London
