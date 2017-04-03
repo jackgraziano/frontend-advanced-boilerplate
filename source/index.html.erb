@@ -6,28 +6,12 @@ title: Le Wagon Middleman boilerplate
 
 <div class="container padded text-center features">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'globe.png' %>
-      <h3>zapzap</h3>
-      <p>call me on zapzap</p>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'dollar.png' %>
-      <h3>zipzop</h3>
-      <p>come to me</p>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'heart.png' %>
-      <h3>zapt</h3>
-      <p>looking back over my shoulder</p>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <img src="images/beer.png" alt="">
-      <h3>zapzeppelin</h3>
-      <p>whats going on</p>
-    </div>
+    <% data.features.each do |feature| %>
+      <%= partial "feature", locals: {image: feature.image, feature: feature.feature, desc: feature.desc} %>
+    <% end %>
   </div>
 </div>
+
 
 
 <!-- Your cards code -->
