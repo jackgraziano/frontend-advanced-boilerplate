@@ -1,2 +1,13 @@
-<h1>Flat</h1>
-<%= data.flats[owner] %>
+<% flat_data = data.flats[owner] %>
+
+<ul class="list-inline text-center">
+  <li><%= image_tag flat_data["owner_picture"], class: "avatar-large" %>
+</li>
+  <li><h2><%= flat_data["name"] %></h2>
+</li>
+</ul>
+
+<%= image_tag flat_data["picture"]%>
+
+<p><%= flat_data["summary"] %></p>
+
